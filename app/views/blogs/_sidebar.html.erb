@@ -1,0 +1,36 @@
+<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+  <div class="sidebar">
+    <div class="widget">
+      <h2 class="widget-title">Popular Posts</h2>
+      <div class="blog-list-widget">
+        <% @popular_blogs.each do |blog| %>
+          <div class="list-group">
+            <a href=<%=blog_path(blog)%> class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="w-100 justify-content-between">
+                <img src=<%=blog.image_url.present? ? blog.image_url : "/assets/tech_blog_08.jpg"%> alt="" class="img-fluid float-left">
+                <h5 class="mb-1"><%=blog.title%></h5>
+                <small><%=blog.created_at&.strftime("%d %^b, %Y")%></small>
+              </div>
+            </a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="widget">
+      <h2 class="widget-title">Recently Viewed</h2>
+      <div class="blog-list-widget">
+        <% @recent_blogs.each do |blog| %>
+          <div class="list-group">
+            <a href=<%=blog_path(blog)%> class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="w-100 justify-content-between">
+                <img src=<%=blog.image_url.present? ? blog.image_url : "/assets/tech_blog_08.jpg"%> alt="" class="img-fluid float-left">
+                <h5 class="mb-1"><%=blog.title%></h5>
+                <small><%=blog.created_at&.strftime("%d %^b, %Y")%></small>
+              </div>
+            </a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
